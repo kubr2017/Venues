@@ -4,7 +4,7 @@ class SearchLocation extends Component {
 
   render(){
     return(
-      <div>
+      <div className='SearchLocation'>
         SearchLocation
       </div>
     )
