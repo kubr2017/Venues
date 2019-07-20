@@ -17,8 +17,7 @@ class App extends Component {
         <Location/>
         <List/>
         <Map/>
-      </div>
-    );
+      </div>);
   }
 };
 
