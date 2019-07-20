@@ -3,6 +3,8 @@ import '../App.css';
 import SearchLocation from './SearchLocation';
 import Miles from './Miles';
 import Location from './Location';
+import List from './List';
+import Map from './Map';
 
 class App extends Component {
 
@@ -13,6 +15,8 @@ class App extends Component {
         <SearchLocation/>
         <Miles/>
         <Location/>
+        <List/>
+        <Map/>
       </div>
     );
   }
