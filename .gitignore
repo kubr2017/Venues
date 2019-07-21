@@ -11,6 +11,9 @@
 # production
 /build
 
+#exclude API keys in repo
+/src/api/keys.js
+
 # misc
 .DS_Store
 .env.local
