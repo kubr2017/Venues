@@ -6,7 +6,7 @@ export const getGoogleMaps = () => {
       console.log('Come in getGoogleMaps');
       console.log('Contex this:',this);
       const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${GoogleAPIkey}&v=3&callback=initMap()`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${GoogleAPIkey}&v=3&callback=initMap`;
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
@@ -14,14 +14,14 @@ export const getGoogleMaps = () => {
 }
 
 
-// export const initMap = () => {
-//   console.log('Come in initMap');
-//
-//   console.log('Google:',window.google);
-//   var map = new window.google.maps.Map(document.getElementById('map'), {
-//     zoom: 15,
-//     center: this.props.neighborhood.location,
-//     mapTypeControl: false
-//   })
-//   window.map = map;
-// }
+export const initMap = () => {
+  console.log('Come in initMap');
+
+  console.log('Google:',window.google);
+  var map = new window.google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: {lat:40.6947591, lng:-73.9950086},
+    mapTypeControl: false
+  })
+  window.map = map;
+}

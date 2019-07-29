@@ -41,19 +41,16 @@
   border: solid 1px red;
 }
 
+#map{
+  border: solid 1px blue;
+  width: 400px;
+  height: 400px;
+}
+
 .VenuesSearch{
   border: solid 1px blue;
 }
 
 .Venues{
   border: solid 1px blue;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
