@@ -10,14 +10,12 @@ export const getGoogleMaps = () => {
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
-      //window.initMap = this.initMap();
+      // window.initMap = initMap;
 }
 
 
 export const initMap = () => {
   console.log('Come in initMap');
-
-  console.log('Google:',window.google);
   var map = new window.google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: {lat:40.6947591, lng:-73.9950086},
