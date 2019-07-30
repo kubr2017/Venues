@@ -23,3 +23,22 @@ export const initMap = () => {
   })
   window.map = map;
 }
+
+export const getGoogleObject = () => {
+      // Load the Google Maps API
+      console.log('Come in getGoogleMaps');
+      console.log('Contex this:',this);
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${GoogleAPIkey}&v=3&callback=callBackFunction`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+      window.callBackFunction = callBackFunction;
+}
+
+
+export const callBackFunction = () => {
+  console.log('Come in callBackFunction');
+  console.log('window.google:',window.google);
+  return window.google;
+}

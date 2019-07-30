@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import { GoogleObjectReduser } from './GoogleObjectReduser';
 
 export default combineReducers({
-  replaceMe: () => 'Hi there!'
+  googleObject: GoogleObjectReduser
 });
