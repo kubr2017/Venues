@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { GoogleObjectReduser } from './GoogleObjectReduser';
+import googleObjectReducer from './googleObjectReducer';
 
 export default combineReducers({
-  googleObject: GoogleObjectReduser
+  googleObject: googleObjectReducer
 });

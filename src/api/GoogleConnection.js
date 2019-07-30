@@ -33,12 +33,15 @@ export const getGoogleObject = () => {
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
-      window.callBackFunction = callBackFunction;
+      return window.callBackFunction = () =>{
+        console.log('Embeded window.google.maps:',window.google.maps);
+        return window.google.maps;
+      };
 }
 
 
-export const callBackFunction = () => {
-  console.log('Come in callBackFunction');
-  console.log('window.google:',window.google);
-  return window.google;
-}
+// export const callBackFunction = () => {
+//   console.log('Come in callBackFunction');
+//   console.log('window.google.maps:',window.google.maps);
+//   return window.google.maps;
+// }

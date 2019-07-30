@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { GoogleAPIkey } from '../api/keys';
-import { getGoogleMaps } from '../api/GoogleConnection'
-import { initMap } from '../api/GoogleConnection'
+import { getGoogleMaps } from '../api/GoogleConnection';
+import { initMap } from '../api/GoogleConnection';
+import { getGoogle } from '../actions/index';
 
 class Map extends Component {
 
   componentDidMount(){
-    console.log('Come in DidMount()')
-    getGoogleMaps();
-    window.initMap = initMap;
-
+    this.props.getGoogle();
   }
 
   render(){
-
+    console.log('googleObject',this.props.googleObject);
     return (
       <div className="Map">
         Map
@@ -23,4 +22,7 @@ class Map extends Component {
   }
 };
 
-export default Map;
+const mapStateToProps = state => {
+  return { googleObject:state.googleObject}
+}
+export default connect(mapStateToProps,{getGoogle})(Map);
