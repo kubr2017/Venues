@@ -12,7 +12,7 @@ class Map extends Component {
   }
 
   render(){
-    console.log('googleObject',this.props.googleObject);
+    console.log('From STATE googleObject:',this.props.googleObject);
     return (
       <div className="Map">
         Map
