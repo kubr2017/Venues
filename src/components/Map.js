@@ -7,29 +7,21 @@ import { getGoogle } from '../actions/index';
 
 class Map extends Component {
 
-  initMap(){
-    console.log('inside initMap window.map:',window.map);
-    console.log('<Map/> google:',window.google);
-    var map = new window.google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: {lat:40.6947591, lng:-73.9950086},
-      mapTypeControl: false
-    })
-    console.log();
-    window.map = map
-  }
-
-
   componentDidMount(){
     console.log('inside DidMount()');
     this.props.getGoogle();
   }
 
   renderMap = (location) => {
-    console.log('inside renderMap window.map:',window.map);
-    console.log('inside if google:',window.google);
-    if(window.google){
-      this.initMap();
+    console.log('inside renderMap this.props.googleObject', this.props.googleObject);
+    if(!(Object.entries(this.props.googleObject).length === 0 && this.props.googleObject.constructor === Object)){
+      let googleObject = this.props.googleObject;
+      console.log('inside check condition empty googleObject', googleObject);
+      var map = new googleObject.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: location,
+        mapTypeControl: false
+      })
     }
 
   }
