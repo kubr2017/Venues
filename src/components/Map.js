@@ -26,18 +26,10 @@ class Map extends Component {
   }
 
   renderMap = (location) => {
-    console.log('inside initMap window.map:',window.map);
+    console.log('inside renderMap window.map:',window.map);
     console.log('inside if google:',window.google);
     if(window.google){
-      console.log('inside if window.map:',window.map);
-      console.log('inside if google:',window.google);
-      var map = new this.props.googleObject.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: location,
-        mapTypeControl: false
-      })
-      console.log();
-      window.map = map;
+      this.initMap();
     }
 
   }
