@@ -13,6 +13,7 @@ class Map extends Component {
   }
 
   renderMap = (location) => {
+<<<<<<< HEAD
     console.log('inside renderMap this.props.googleObject', this.props.googleObject);
     if(!(Object.entries(this.props.googleObject).length === 0 && this.props.googleObject.constructor === Object)){
       let googleObject = this.props.googleObject;
@@ -22,6 +23,12 @@ class Map extends Component {
         center: location,
         mapTypeControl: false
       })
+=======
+    console.log('inside renderMap window.map:',window.map);
+    console.log('inside if google:',window.google);
+    if(window.google){
+      this.initMap();
+>>>>>>> dev
     }
 
   }

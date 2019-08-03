@@ -6,6 +6,7 @@ class SearchLocation extends Component {
     return(
       <div className='SearchLocation'>
         SearchLocation
+        <div><input id='searchInput' /></div>
       </div>
     )
   }
