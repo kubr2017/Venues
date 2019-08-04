@@ -37,7 +37,7 @@ function loadScript(src) {
 }
 
 export const getGoogleObject = () => {
-  let promise = loadScript(`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIkey}&v=3`)
+  let promise = loadScript(`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIkey}&libraries=places&v=3`)
   return promise;
 }
 
