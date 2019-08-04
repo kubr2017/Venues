@@ -10,6 +10,16 @@ class SearchLocation extends Component {
       console.log('in renderAutocomplete, in IF statement, googleObject:',googleObject);
       let input = document.getElementById('searchInput');
       var autoComplete = new googleObject.places.Autocomplete(input);
+      autoComplete.addListener('place_changed', function(){
+        var place = autoComplete.getPlace()
+        if (place.geometry){
+          console.log('in autoComplete - Place:',place.name);
+          console.log('place location:', place.geometry.location);
+        }
+        else {
+          console.log('no such place!!!');
+        }
+      })
     }
   }
 
