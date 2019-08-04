@@ -19,7 +19,7 @@ class SearchLocation extends Component {
     return(
       <div className='SearchLocation'>
         SearchLocation
-        <div><input id='searchInput'/></div>
+        <div><input id='searchInput'placeHolder='Type name of area, address, zip code or some places'/></div>
       </div>
     )
   }
