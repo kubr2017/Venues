@@ -8,14 +8,14 @@ import { getGoogleMaps } from '../api/GoogleConnection';
 class Map extends Component {
 
   componentDidMount(){
-    console.log('inside DidMount()');
+    // console.log('inside DidMount()');
   }
 
   renderMap = (location) => {
-    console.log('inside renderMap this.props.googleObject', this.props.googleObject);
+    // console.log('inside renderMap this.props.googleObject', this.props.googleObject);
     if(!(Object.entries(this.props.googleObject).length === 0 && this.props.googleObject.constructor === Object)){
       let googleObject = this.props.googleObject;
-      console.log('inside check condition empty googleObject', googleObject);
+      // console.log('inside check condition empty googleObject', googleObject);
       var map = new googleObject.Map(document.getElementById('map'), {
         zoom: 15,
         center: location,
@@ -26,7 +26,7 @@ class Map extends Component {
   }
 
   render(){
-    console.log('From STATE googleObject:',this.props.googleObject);
+    // console.log('From STATE googleObject:',this.props.googleObject);
     this.renderMap({lat:40.6947591, lng:-73.9950086});
     return (
 

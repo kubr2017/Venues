@@ -7,7 +7,7 @@ import List from './List';
 import Map from './Map';
 
 import { connect } from 'react-redux';
-import { getGoogle } from '../actions/index';
+import { getGoogle } from '../actions';
 
 class App extends Component {
 
