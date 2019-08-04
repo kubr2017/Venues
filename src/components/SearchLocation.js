@@ -22,6 +22,7 @@ class SearchLocation extends Component {
           }
           console.log('AREA:',area);
           this.props.getLocation(area);
+          console.log('From state:',this.props.areaName);
 
         }
         else {
@@ -44,7 +45,9 @@ class SearchLocation extends Component {
 };
 
 const mapStateToProps = state => {
-  return { googleObject:state.googleObject }
+  return { googleObject:state.googleObject,
+           areaName:state.areaName,
+           areaLocation:state.areaLocation }
 }
 
 export default connect(mapStateToProps,{ getLocation })(SearchLocation);
