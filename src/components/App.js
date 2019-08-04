@@ -6,7 +6,14 @@ import Location from './Location';
 import List from './List';
 import Map from './Map';
 
+import { connect } from 'react-redux';
+import { getGoogle } from '../actions/index';
+
 class App extends Component {
+
+  componentDidMount(){
+    this.props.getGoogle();
+  }
 
   render(){
     return (
@@ -29,4 +36,4 @@ class App extends Component {
   }
 };
 
-export default App;
+export default connect(null,{ getGoogle })(App);

@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { GoogleAPIkey } from '../api/keys';
 import { getGoogleMaps } from '../api/GoogleConnection';
 // import { initMap } from '../api/GoogleConnection';
-import { getGoogle } from '../actions/index';
+
 
 class Map extends Component {
 
   componentDidMount(){
     console.log('inside DidMount()');
-    this.props.getGoogle();
   }
 
   renderMap = (location) => {
@@ -42,4 +41,4 @@ class Map extends Component {
 const mapStateToProps = state => {
   return { googleObject:state.googleObject}
 }
-export default connect(mapStateToProps,{getGoogle})(Map);
+export default connect(mapStateToProps)(Map);
