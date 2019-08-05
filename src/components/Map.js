@@ -26,8 +26,13 @@ class Map extends Component {
   }
 
   render(){
-    // console.log('From STATE googleObject:',this.props.googleObject);
-    this.renderMap({lat:40.6947591, lng:-73.9950086});
+    // Condition to check user typed area
+    if(this.props.location){
+      this.renderMap(this.props.location)
+    }
+    else {  //default area for search
+      this.renderMap({lat:40.6947591, lng:-73.9950086});
+    }
     return (
 
       <div className="Map">
@@ -39,6 +44,7 @@ class Map extends Component {
 };
 
 const mapStateToProps = state => {
-  return { googleObject:state.googleObject}
+  return { googleObject:state.googleObject,
+           location:state.areaObject.location}
 }
 export default connect(mapStateToProps)(Map);
