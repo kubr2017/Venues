@@ -9,10 +9,11 @@ class Venues extends Component {
   componentDidMount(){
   }
   renderVenues(){
+    console.log('in renderVenues');
     const parameters = {
       client_id:FourSquareClient_id,
       client_secret:FourSquareClient_secret,
-      ll:this.props.location,
+      ll:'40.6947591,-73.9950086',
       query:'restaurant,pizza',
       radius:500,
       limit:2,
@@ -22,6 +23,7 @@ class Venues extends Component {
   }
 
   render(){
+    this.renderVenues();
     return (
       <div className="Venues">
         Venues

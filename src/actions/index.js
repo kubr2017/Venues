@@ -1,5 +1,5 @@
 import { getGoogleObject } from '../api/GoogleConnection';
-import FourSquareConnection from '..api/FourSquareConnection';
+import FourSquareConnection from '../api/FourSquareConnection';
 
 
 export const getGoogle = () => async dispatch => {
@@ -17,9 +17,9 @@ export const getLocation = (area) => {
   };
 };
 
-export const getVenues = (parameters) => {
+export const getVenues = (parameters) => async dispatch => {
   console.log('in getVenues params:',parameters);
-  const response = await FourSquareConnection.get('/search?',parameters)
+  const response = await FourSquareConnection.get('/search?' + new URLSearchParams(parameters))
 
   dispatch({ type: 'FETCH_VENUES', payload: response});
 };
