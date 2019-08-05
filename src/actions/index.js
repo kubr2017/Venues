@@ -24,6 +24,13 @@ export const getVenues = (parameters) => async dispatch => {
   dispatch({ type: 'FETCH_VENUES', payload: response});
 };
 
+export const getVenueDetails = (parameters) => async dispatch => {
+  console.log('in getVenueDetails params:',parameters);
+  const response = await FourSquareConnection.get('/4aad3536f964a520035f20e3'+'?' + new URLSearchParams(parameters))
+
+  dispatch({ type: 'FETCH_VENUE_DETAILS', payload: response});
+};
+
 // const endPoint = 'https://api.foursquare.com/v2/venues/search?'
 // const parameters = {
 //   client_id:FourSquareClient_id,

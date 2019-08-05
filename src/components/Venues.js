@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVenues } from '../actions';
+import { getVenueDetails } from '../actions';
 import {FourSquareClient_id} from '../api/keys';
 import {FourSquareClient_secret} from '../api/keys';
 
@@ -20,6 +21,12 @@ class Venues extends Component {
       v:'20182507'
     }
     this.props.getVenues(parameters);
+    const params = {
+      client_id:FourSquareClient_id,
+      client_secret:FourSquareClient_secret,
+      v:'20182507'
+    }
+    this.props.getVenueDetails(params);
   }
 
   render(){
@@ -34,4 +41,4 @@ class Venues extends Component {
 const mapStateToProps = state => {
   return {location:state.areaObject.location};
 }
-export default connect (mapStateToProps,{ getVenues })(Venues);
+export default connect (mapStateToProps,{ getVenues, getVenueDetails })(Venues);
