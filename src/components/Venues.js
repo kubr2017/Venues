@@ -2,31 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getVenues } from '../actions';
 import { getDetails } from '../actions';
-import {FourSquareClient_id} from '../api/keys';
-import {FourSquareClient_secret} from '../api/keys';
+import { getVenuesDetails } from '../actions';
 
 class Venues extends Component {
 
-  componentDidMount(){
-  }
   renderVenues(){
     console.log('in renderVenues');
-    const parameters = {
-      client_id:FourSquareClient_id,
-      client_secret:FourSquareClient_secret,
-      ll:'40.6947591,-73.9950086',
-      query:'restaurant,pizza',
-      radius:500,
-      limit:2,
-      v:'20182507'
-    }
-    this.props.getVenues(parameters);
-    const params = {
-      client_id:FourSquareClient_id,
-      client_secret:FourSquareClient_secret,
-      v:'20182507'
-    }
-    this.props.getDetails(params);
+
+    // this.props.getVenues();
+    // const Id='4aad3536f964a520035f20e3'
+    //
+    // this.props.getDetails(Id);
+
+    this.props.getVenuesDetails();
+    console.log('in <Venues/> venuesDetails:',this.props.venuesDetails);
+
   }
 
   render(){
@@ -39,6 +29,7 @@ class Venues extends Component {
   }
 };
 const mapStateToProps = state => {
-  return {location:state.areaObject.location};
+  return {location:state.areaObject.location,
+          venuesDetails:state.venueDetailsReducer};
 }
-export default connect (mapStateToProps,{ getVenues, getDetails })(Venues);
+export default connect (mapStateToProps,{ getVenues, getDetails, getVenuesDetails })(Venues);
