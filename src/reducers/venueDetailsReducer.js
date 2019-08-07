@@ -1,6 +1,6 @@
 export default (state = {}, action) => {
   switch (action.type) {
-    case 'FETCH_VENUE_DETAILS':
+    case 'FETCH_DETAILS':
       console.log('inside case in venueDetails reducer, payload',action.payload);
       return action.payload;
     default:
