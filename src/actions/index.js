@@ -19,19 +19,19 @@ export const getLocation = (area) => {
   };
 };
 
-export const getVenuesDetails = (parameters) => async (dispatch,getState) => {
+export const getVenuesDetails = (location) => async (dispatch,getState) => {
   console.log('in getVenueDetails');
-  await dispatch(getVenues(parameters));
+  await dispatch(getVenues(location));
 
   getState().venuesReducer.data.response.venues.map((el)=>(el.id)).forEach(async function(id){ await dispatch(getDetails(id))})
 }
 
-export const getVenues = () => async dispatch => {
+export const getVenues = (location) => async dispatch => {
   console.log('in getVenues:');
   const parameters = {
     client_id:FourSquareClient_id,
     client_secret:FourSquareClient_secret,
-    ll:'40.6947591,-73.9950086',
+    ll:location,
     query:'restaurant,pizza',
     radius:500,
     limit:2,
