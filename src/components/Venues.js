@@ -15,7 +15,7 @@ class Venues extends Component {
     // this.props.getDetails(Id);
 
     this.props.getVenuesDetails();
-    console.log('in <Venues/> venuesDetails:',this.props.venuesDetails);
+    console.log('in <Venues/> props:',this.props);
 
   }
 
