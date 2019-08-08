@@ -30,6 +30,6 @@ class Venues extends Component {
 };
 const mapStateToProps = state => {
   return {location:state.areaObject.location,
-          venuesDetails:state.venueDetailsReducer};
+          venuesDetails:state.venuesDetails};
 }
 export default connect (mapStateToProps,{ getVenues, getDetails, getVenuesDetails })(Venues);
