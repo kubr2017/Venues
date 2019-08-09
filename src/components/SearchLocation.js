@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getLocation } from '../actions';
 import { getVenuesDetails } from '../actions';
+import { resetVenues } from '../actions';
 
 class SearchLocation extends Component {
 
@@ -59,6 +60,7 @@ class SearchLocation extends Component {
           console.log('AREA:',area);
           this.props.getLocation(area);
           console.log('From state:',this.props.areaObject);
+          this.props.resetVenues();
           this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
 
         }
@@ -87,4 +89,4 @@ const mapStateToProps = state => {
            location:state.areaObject.location}
 }
 
-export default connect(mapStateToProps,{ getLocation, getVenuesDetails })(SearchLocation);
+export default connect(mapStateToProps,{ getLocation, getVenuesDetails, resetVenues })(SearchLocation);

@@ -56,6 +56,12 @@ export const getDetails = (Id) => async dispatch => {
   dispatch({ type: 'FETCH_DETAILS', payload: response});
 };
 
+export const resetVenues = () => {
+  return {
+    type: 'RESET'
+  }
+}
+
 // const endPoint = 'https://api.foursquare.com/v2/venues/search?'
 // const parameters = {
 //   client_id:FourSquareClient_id,

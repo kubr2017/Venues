@@ -5,6 +5,9 @@ export default (state = [], action) => {
       let payload = [...state, action.payload];
       console.log('payload:',payload);
       return payload;
+    case 'RESET':
+      console.log('Reset');
+      return state = [];
     default:
       return state;
   }
