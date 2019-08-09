@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getLocation } from '../actions';
+import { getVenuesDetails } from '../actions';
 
 class SearchLocation extends Component {
 
@@ -82,7 +83,8 @@ class SearchLocation extends Component {
 
 const mapStateToProps = state => {
   return { googleObject:state.googleObject,
-           areaObject:state.areaObject}
+           areaObject:state.areaObject,
+           location:state.areaObject.location}
 }
 
-export default connect(mapStateToProps,{ getLocation })(SearchLocation);
+export default connect(mapStateToProps,{ getLocation, getVenuesDetails })(SearchLocation);
