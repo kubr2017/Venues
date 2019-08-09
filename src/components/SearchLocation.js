@@ -41,8 +41,9 @@ class SearchLocation extends Component {
               name: 'Manhattan',
               location: results[0].geometry.location
             }
-          }  
-          this.props.getLocation(defaultArea);
+          }
+          this.props.getLocation(defaultArea);//set up map
+          this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
         })
       }
 
@@ -57,6 +58,7 @@ class SearchLocation extends Component {
           console.log('AREA:',area);
           this.props.getLocation(area);
           console.log('From state:',this.props.areaObject);
+          this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
 
         }
         else {

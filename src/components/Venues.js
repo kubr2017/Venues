@@ -17,7 +17,7 @@ class Venues extends Component {
     //
     if(this.props.location){
       console.log('lat:',this.props.location.lat(),' lng:',this.props.location.lng());
-      this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
+
     }
 
     console.log('in <Venues/> props:',this.props);
