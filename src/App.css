@@ -85,12 +85,17 @@
   text-align: left;
 }
 
-.Venues-card-details-time{
+.Venues-card-details > span{
   display: inline-block;
+  margin: 1% 0% 1% 1%;
   vertical-align: top;
-  width: 25%;
+  font-size: 0.9em;
+}
+
+.Venues-card-details-time{
+  width: 27%;
 }
 
 .Venues-card-details-time > span{
-  margin: 0.5% auto;
+  margin: 1% auto;
 }
