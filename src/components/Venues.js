@@ -38,7 +38,7 @@ class Venues extends Component {
         <hr/>
         <div className = 'Venues-card-details'>
           <div className = 'Venues-card-details-pic'>
-          <img src={venue.photos.groups[1]?venue.photos.groups[1].items[0].prefix+'75x75'+venue.photos.groups[1].items[0].suffix: require('../images/NoPic.png')}></img>
+            <img src={venue.photos.groups[1]?venue.photos.groups[1].items[0].prefix+'75x75'+venue.photos.groups[1].items[0].suffix: require('../images/NoPic.png')}/>
           {/*<img src={require('../images/NoPic.png')}/>*/}
           </div>
           <div className = 'Venues-card-details-menu'>
