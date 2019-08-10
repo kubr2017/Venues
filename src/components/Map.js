@@ -26,18 +26,15 @@ class Map extends Component {
   }
 
   render(){
-    // Condition to check user typed area
+    // Condition to check location is loaded
     if(this.props.location){
       this.renderMap(this.props.location)
     }
-    else {  //default area for search
-      this.renderMap({lat:40.6947591, lng:-73.9950086});
-    }
+
     return (
 
       <div className="Map">
-        Map
-        <div id="map">map</div>
+        <div id="map">Loading...</div>
       </div>
     );
   }

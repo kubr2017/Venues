@@ -77,7 +77,7 @@ class SearchLocation extends Component {
     return(
       <div className='SearchLocation'>
         SearchLocation
-        <div><input id='searchInput' placeholder='Type name of area, address, zip code or some places'/></div>
+        <div><input id='searchInput' placeholder='Type name of area, address, zip code or some places' size="50"/></div>
       </div>
     )
   }
