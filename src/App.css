@@ -79,3 +79,18 @@
   clear:both;
   display: table;
 }
+
+.Venues-card-details{
+  vertical-align: top;
+  text-align: left;
+}
+
+.Venues-card-details-time{
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+}
+
+.Venues-card-details-time > span{
+  margin: 0.5% auto;
+}

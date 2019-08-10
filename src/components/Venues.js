@@ -14,7 +14,10 @@ class Venues extends Component {
     if(this.props.venuesDetails.length) {
       //console.log('lat:',this.props.location.lat(),' lng:',this.props.location.lng());
       //console.log('in <Venues/> props:',this.props);
-      //console.log('venuesDEtails parse:',this.props.venuesDetails.map((venue)=>(this.renderCard(venue.data.response.venue))));
+      // this.props.venuesDetails.map((venue)=>(console.log('time:',venue.data.response.venue))));
+      if (this.props.venuesDetails[0].data.response.venue.hours){
+        console.log('time:',this.props.venuesDetails[0].data.response.venue.hours.timeframes[0]);
+      }
       return this.props.venuesDetails.map((venue)=>(this.renderCard(venue.data.response.venue)));
     }
     else {
@@ -37,19 +40,20 @@ class Venues extends Component {
         </div>
         <hr/>
         <div className = 'Venues-card-details'>
-          <div className = 'Venues-card-details-pic'>
-            <img src={venue.photos.groups[1]?venue.photos.groups[1].items[0].prefix+'75x75'+venue.photos.groups[1].items[0].suffix: require('../images/NoPic.png')}/>
+          <span className = 'Venues-card-details-pic'>
+            <img src={venue.photos.groups[1]?venue.photos.groups[1].items[0].prefix+'75x75'+venue.photos.groups[1].items[0].suffix: require('../images/NoPic-75.png')}/>
           {/*<img src={require('../images/NoPic.png')}/>*/}
-          </div>
-          <div className = 'Venues-card-details-menu'>
-          menu
-          </div>
-          <div className = 'Venues-card-details-time'>
-          time
-          </div>
-          <div className = 'Venues-card-details-address'>
-          address
-          </div>
+          </span>
+          <span className = 'Venues-card-details-menu'>
+            <img src={require('../images/menu-75.jpg')}/>
+          </span>
+          <span className = 'Venues-card-details-time'>
+            <span>{ venue.hours?`Days:${venue.hours.timeframes[0].days}`:'No available'}</span><br/>
+            <span>{ venue.hours?`Hours:${venue.hours.timeframes[0].open[0].renderedTime}`:''}</span>
+          </span>
+          <span className = 'Venues-card-details-address'>
+          {venue.location.address}
+          </span>
         </div>
       </div>
     )
