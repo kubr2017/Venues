@@ -54,3 +54,28 @@
 .Venues{
   border: solid 1px blue;
 }
+
+.Venues-card{
+  background-color: #fafafa;
+  margin: 1% 1%;
+  border-radius: 5px;
+  box-shadow: 3px 2px #bbb;
+}
+
+.Venues-card-head{
+  padding: 2% 2% 0% 2%;
+}
+
+.Venues-card-head-name{
+  float:left;
+}
+
+.Venues-card-head-rate{
+  float:right;
+}
+
+.Venues-card-head::after{
+  content: '';
+  clear:both;
+  display: table;
+}

@@ -6,32 +6,40 @@ import { getVenuesDetails } from '../actions';
 
 class Venues extends Component {
 
+
+  first = {name:'firstName'}
+
   renderVenues() {
     console.log('in renderVenues');
-    if(this.props.location) {
-      console.log('lat:',this.props.location.lat(),' lng:',this.props.location.lng());
-      console.log('in <Venues/> props:',this.props);
-      console.log('venuesDEtails parse:',this.props.venuesDetails.map((venue)=>(venue.data.response.venue)));
-      // return this.props.venuesDetails.map((venue)=>(venue.data.response.venue).map((venue)=>(returnCard()));
+    if(this.props.venuesDetails.length) {
+      //console.log('lat:',this.props.location.lat(),' lng:',this.props.location.lng());
+      //console.log('in <Venues/> props:',this.props);
+      //console.log('venuesDEtails parse:',this.props.venuesDetails.map((venue)=>(this.renderCard(venue.data.response.venue))));
+      return this.props.venuesDetails.map((venue)=>(this.renderCard(venue.data.response.venue)));
+    }
+    else {
+      return <div>Loading...</div>
     }
   }
 
 
 
-  renderCard(){
+  renderCard(venue){
     return(
-      <div className='Venues-card'>
+      <div className='Venues-card' key={venue.id}>
         <div className = 'Venues-card-head'>
-          <div className = 'Venues-card-head-name'>
-          name
-          </div>
-          <div className = 'Venues-card-head-rate'>
-          rate
-          </div>
+          <span className = 'Venues-card-head-name'>
+          {venue.name}
+          </span>
+          <span className = 'Venues-card-head-rate'>
+            {venue.rating?`Rate=${venue.rating}`:'No rate'}
+          </span>
         </div>
+        <hr/>
         <div className = 'Venues-card-details'>
           <div className = 'Venues-card-details-pic'>
-          pic
+          <img src={venue.photos.groups[1]?venue.photos.groups[1].items[0].prefix+'75x75'+venue.photos.groups[1].items[0].suffix: require('../images/NoPic.png')}></img>
+          {/*<img src={require('../images/NoPic.png')}/>*/}
           </div>
           <div className = 'Venues-card-details-menu'>
           menu
@@ -54,8 +62,6 @@ class Venues extends Component {
 
     return (
       <div className="Venues">
-        Venues
-        {this.renderCard()}
         {this.renderVenues()}
       </div>
     );
