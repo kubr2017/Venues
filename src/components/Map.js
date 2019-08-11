@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleAPIkey } from '../api/keys';
 import { getGoogleMaps } from '../api/GoogleConnection';
-// import { initMap } from '../api/GoogleConnection';
 
 
 class Map extends Component {

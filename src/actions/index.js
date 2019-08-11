@@ -33,8 +33,8 @@ export const getVenues = (location) => async dispatch => {
     client_secret:FourSquareClient_secret,
     ll:location,
     query:'restaurant,pizza',
-    radius:500,
-    limit:2,
+    radius:5000,
+    limit:3,
     v:'20182507'
   }
 
