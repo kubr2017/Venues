@@ -15,9 +15,9 @@ class Venues extends Component {
       //console.log('lat:',this.props.location.lat(),' lng:',this.props.location.lng());
       //console.log('in <Venues/> props:',this.props);
       // this.props.venuesDetails.map((venue)=>(console.log('time:',venue.data.response.venue))));
-      if (this.props.venuesDetails[0].data.response.venue.hours){
-        console.log('time:',this.props.venuesDetails[0].data.response.venue.hours.timeframes[0]);
-      }
+      // if (this.props.venuesDetails[0].data.response.venue.hours){
+      //   console.log('time:',this.props.venuesDetails[0].data.response.venue.hours.timeframes[0]);
+      // }
       return this.props.venuesDetails.map((venue)=>(this.renderCard(venue.data.response.venue)));
     }
     else {

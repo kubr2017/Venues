@@ -34,7 +34,7 @@ export const getVenues = (location) => async dispatch => {
     ll:location,
     query:'restaurant,pizza',
     radius:500,
-    limit:5,
+    limit:2,
     v:'20182507'
   }
 
