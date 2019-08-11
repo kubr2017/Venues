@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 import SearchLocation from './SearchLocation';
-import Location from './Location';
 import List from './List';
 import Map from './Map';
 
@@ -27,7 +26,6 @@ class App extends Component {
           <List/>
         </div>
         <div className='App-map-box'>
-          <Location/>
           <Map/>
         </div>
       </div>);
