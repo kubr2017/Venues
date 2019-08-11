@@ -22,7 +22,7 @@ class SearchLocation extends Component {
       let googleObject = this.props.googleObject;
       console.log('in renderAutocomplete, in IF statement, googleObject:',googleObject);
       let input = document.getElementById('searchInput');
-      var autoComplete = new googleObject.places.Autocomplete(input);
+      var autoComplete = new googleObject.maps.places.Autocomplete(input);
       //set up default location
       // let defaultPlace = autoComplete.getPlace('Manhattan, NY, USA');
       // let defaultArea = {
@@ -31,9 +31,9 @@ class SearchLocation extends Component {
       // }
       // this.props.getLocation(defaultArea);
       if (!this.props.areaObject.location){
-        var geocoder = new googleObject.Geocoder();
+        var geocoder = new googleObject.maps.Geocoder();
         geocoder.geocode( { location:{lat:40.7830603,lng:-73.971248}}, (results, status) => {
-        if (status == googleObject.GeocoderStatus.OK)
+        if (status == googleObject.maps.GeocoderStatus.OK)
           {
         // do something with the geocoded result
         //

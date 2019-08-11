@@ -29,7 +29,7 @@ function loadScript(src) {
     let script = document.createElement('script');
     script.src = src;
 
-    script.onload = () => resolve(window.google.maps);
+    script.onload = () => resolve(window.google);
     script.onerror = () => reject(new Error(`Script load error`));
 
     document.head.append(script);
