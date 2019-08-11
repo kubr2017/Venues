@@ -33,13 +33,19 @@ class Map extends Component {
     let location = {lat:venue.location.lat,
                     lng:venue.location.lng};
                     console.log('in render marker - location:',location);
-    let marker = new window.google.maps.Marker({
+    let marker = new this.props.googleObject.maps.Marker({
         position:location,
         map: this.map,
         title: venue.name
       });
 
-      this.markers.push(marker);
+    this.markers.push(marker);
+    let infowindow = new this.props.googleObject.maps.InfoWindow({
+      content:'<div class="infoWindow-Container"><span class="infoWindow-name">'+venue.name+'</span><p class="infoWindow-address">'+venue.location.address+'</p></div>'
+    })
+    marker.addListener('click',()=>{
+      infowindow.open(this.map,marker)
+    })
   }
 
   // Render all markers through loop
