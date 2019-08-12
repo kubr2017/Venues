@@ -55,7 +55,7 @@
   border-radius: 5px;
   box-shadow: 3px 2px #bbb;
 }
-
+/*for focused venue card*/
 #focused {
   background-color: #fefefe;
   box-shadow: 3px 7px #b5b5b5;
