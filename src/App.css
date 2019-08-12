@@ -56,8 +56,9 @@
   box-shadow: 3px 2px #bbb;
 }
 
-div .Venues-card .focused{
-  box-shadow: 5px 3px #b5b5b5;
+#focused {
+  background-color: #fefefe;
+  box-shadow: 3px 7px #b5b5b5;
 }
 
 .Venues-card-head{

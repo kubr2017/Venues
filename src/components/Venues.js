@@ -34,7 +34,7 @@ class Venues extends Component {
   // Render single card of venue
   renderCard(venue){
     return(
-      <div className={ this.props.focus==venue.id ? 'focused Venues-card':'Venues-card'} key={venue.id} onClick={((e)=>(this.updateFocus(e, venue.id)))}>
+      <div className='Venues-card' id = { this.props.focus==venue.id ? 'focused':null} key={venue.id} onClick={((e)=>(this.updateFocus(e, venue.id)))}>
         <div className = 'Venues-card-head'>
           <span className = 'Venues-card-head-name'>
           {venue.name}
