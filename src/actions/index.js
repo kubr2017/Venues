@@ -13,10 +13,7 @@ export const getGoogle = () => async dispatch => {
 
 export const getLocation = (area) => {
   console.log('inside getLocation action',area);
-  return {
-    type:'AREA_OBJECT',
-    payload: area
-  };
+  return { type:'AREA_OBJECT', payload: area };
 };
 
 export const getVenuesDetails = (location) => async (dispatch,getState) => {
@@ -56,10 +53,16 @@ export const getDetails = (Id) => async dispatch => {
   dispatch({ type: 'FETCH_DETAILS', payload: response});
 };
 
+//for reset reducer that has data of venues from previous area
 export const resetVenues = () => {
-  return {
-    type: 'RESET'
-  }
+
+  return ({ type: 'RESET' })
+}
+
+//for update information about venue that got focus
+export const getFocus = (dataId) => {
+
+  return ({type:'UPDATE_FOCUS', payload:dataId})
 }
 
 // const endPoint = 'https://api.foursquare.com/v2/venues/search?'

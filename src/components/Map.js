@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleAPIkey } from '../api/keys';
 import { getGoogleMaps } from '../api/GoogleConnection';
+import { getFocus } from '../actions';
 
 
 class Map extends Component {
@@ -12,6 +13,12 @@ class Map extends Component {
 
   markers = [];
   map = {};
+
+  //Check update update focus
+  updateFocus = (dataId) => {
+    console.log('click venue Id:',dataId);
+    this.props.getFocus(dataId);
+  }
 
   // Render map
   renderMap = (location) => {
@@ -32,7 +39,7 @@ class Map extends Component {
   createMarker = (venue) => {
     let location = {lat:venue.location.lat,
                     lng:venue.location.lng};
-                    console.log('in render marker - location:',location);
+                    // console.log('in render marker - location:',location);
     let marker = new this.props.googleObject.maps.Marker({
         position:location,
         map: this.map,
@@ -40,11 +47,20 @@ class Map extends Component {
       });
 
     this.markers.push(marker);
-    let infowindow = new this.props.googleObject.maps.InfoWindow({
+
+    // crete infoWindow of marker
+    let infoWindow = new this.props.googleObject.maps.InfoWindow({
       content:'<div class="infoWindow-Container"><span class="infoWindow-name">'+venue.name+'</span><p class="infoWindow-address">'+venue.location.address+'</p></div>'
     })
+
+    //check current marker is focusing
+    if(venue.id==this.props.focus){
+      infoWindow.open(this.map, marker)
+    }
+
     marker.addListener('click',()=>{
-      infowindow.open(this.map,marker)
+      infoWindow.open(this.map,marker)
+      this.updateFocus(venue.id)
     })
   }
 
@@ -52,7 +68,7 @@ class Map extends Component {
   renderMarkers = () => {
     if (!(Object.entries(this.props.venues).length === 0 && this.props.venues.constructor === Object)){
       this.props.venues.data.response.venues.map((venue)=>(this.createMarker(venue)))
-      this.markers.map((marker)=>(console.log('marker:',marker)));
+      // this.markers.map((marker)=>(console.log('marker:',marker)));
     }
   }
 
@@ -75,6 +91,7 @@ class Map extends Component {
 const mapStateToProps = state => {
   return { googleObject:state.googleObject,
            location:state.areaObject.location,
-           venues:state.venuesReducer}
+           venues:state.venuesReducer,
+           focus:state.focus}
 }
-export default connect(mapStateToProps)(Map);
+export default connect(mapStateToProps,{ getFocus })(Map);

@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import { getVenues } from '../actions';
 import { getDetails } from '../actions';
 import { getVenuesDetails } from '../actions';
+import { getFocus } from '../actions';
 
 class Venues extends Component {
 
+  //Function for checking intrcept focus
+  updateFocus = (e,dataId) => {
+    console.log('Click on e:',e,' click venue id:',dataId);
+    this.props.getFocus(dataId);
+  }
 
-  first = {name:'firstName'}
-
+  // Render list of venues
   renderVenues() {
     console.log('in renderVenues');
     if(this.props.venuesDetails.length) {
@@ -26,10 +31,10 @@ class Venues extends Component {
   }
 
 
-
+  // Render single card of venue
   renderCard(venue){
     return(
-      <div className='Venues-card' key={venue.id}>
+      <div className='Venues-card' key={venue.id} onClick={((e)=>(this.updateFocus(e, venue.id)))}>
         <div className = 'Venues-card-head'>
           <span className = 'Venues-card-head-name'>
           {venue.name}
@@ -72,7 +77,8 @@ class Venues extends Component {
   }
 };
 const mapStateToProps = state => {
-  return {location:state.areaObject.location,
-          venuesDetails:state.venuesDetails};
+  return { location:state.areaObject.location,
+           venuesDetails:state.venuesDetails,
+           focus:state.focus };
 }
-export default connect (mapStateToProps,{ getVenues, getDetails, getVenuesDetails })(Venues);
+export default connect (mapStateToProps,{ getVenues, getDetails, getVenuesDetails, getFocus })(Venues);
