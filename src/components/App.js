@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='App-title-box'>
-          App
+          High rated venues in your area
         </div>
         <div className='App-search-location-box'>
           <SearchLocation/>
