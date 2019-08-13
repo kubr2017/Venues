@@ -19,10 +19,10 @@ class App extends Component {
         <div className='App-title-box'>
           App
         </div>
+        <div className='App-search-location-box'>
+          <SearchLocation/>
+        </div>
         <div className='App-venues-box'>
-          <div className='App-search-location-box'>
-            <SearchLocation/>
-          </div>
           <List/>
         </div>
         <div className='App-map-box'>
