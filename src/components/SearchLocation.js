@@ -55,9 +55,9 @@ class SearchLocation extends Component {
     console.log('in SearchLocation, in render');
     this.renderAutocomplete();
     return(
-      <div className='SearchLocation'>
-        SearchLocation
-        <div><input id='searchInput' placeholder='Type name of area, address, zip code or some places' size="50"/></div>
+      <div className = 'SearchLocation'>
+        <span className = 'SearchLocation-currentLocation'>Research for:{/*this.props.location?this.props.location:''*/}</span>
+        <span className = 'SearchLocation-inputContainer'><input id='searchInput' placeholder='Type name of area, address, zip code or some places' size="50"/></span>
       </div>
     )
   }
