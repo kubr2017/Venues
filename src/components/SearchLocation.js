@@ -6,15 +6,6 @@ import { resetVenues } from '../actions';
 
 class SearchLocation extends Component {
 
-  // componentDidMount(){
-  //   //set uo default area
-  //   let area = {
-  //     name:'Manhattan',
-  //     location:{lat:40.7830603,lng:-73.971248}
-  //   }
-  //   this.props.getLocation(area);
-  // }
-
   renderAutocomplete = () => {
 
     console.log('in renderAutocomplete, condition:',(Object.entries(this.props.googleObject).length === 0 && this.props.googleObject.constructor === Object));
@@ -23,22 +14,11 @@ class SearchLocation extends Component {
       console.log('in renderAutocomplete, in IF statement, googleObject:',googleObject);
       let input = document.getElementById('searchInput');
       var autoComplete = new googleObject.maps.places.Autocomplete(input);
-      //set up default location
-      // let defaultPlace = autoComplete.getPlace('Manhattan, NY, USA');
-      // let defaultArea = {
-      //   name: defaultPlace.name,
-      //   location: defaultPlace.geometry.location
-      // }
-      // this.props.getLocation(defaultArea);
+
       if (!this.props.areaObject.location){
         var geocoder = new googleObject.maps.Geocoder();
         geocoder.geocode( { location:{lat:40.7830603,lng:-73.971248}}, (results, status) => {
-        if (status == googleObject.maps.GeocoderStatus.OK)
-          {
-        // do something with the geocoded result
-        //
-        // results[0].geometry.location.latitude
-        // results[0].geometry.location.longitude
+        if (status == googleObject.maps.GeocoderStatus.OK){
             var defaultArea = {
               name: 'Manhattan',
               location: results[0].geometry.location
