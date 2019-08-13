@@ -6,6 +6,14 @@ import { resetVenues } from '../actions';
 
 class SearchLocation extends Component {
 
+
+  // set Map and venues rely upon area data
+  setMapVenues = (area) =>{
+    this.props.resetVenues();//reset previous data
+    this.props.getLocation(area);//set up map
+    this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());//get list of venues
+  }
+
   renderAutocomplete = () => {
 
     console.log('in renderAutocomplete, condition:',(Object.entries(this.props.googleObject).length === 0 && this.props.googleObject.constructor === Object));
@@ -15,6 +23,7 @@ class SearchLocation extends Component {
       let input = document.getElementById('searchInput');
       var autoComplete = new googleObject.maps.places.Autocomplete(input);
 
+      //first moment of start - set up default area
       if (!this.props.areaObject.location){
         var geocoder = new googleObject.maps.Geocoder();
         geocoder.geocode( { location:{lat:40.7830603,lng:-73.971248}}, (results, status) => {
@@ -24,11 +33,12 @@ class SearchLocation extends Component {
               location: results[0].geometry.location
             }
           }
-          this.props.getLocation(defaultArea);//set up map
-          this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
+
+          // set up map and venues
+          this.setMapVenues(defaultArea);
         })
       }
-
+      //User search location
       autoComplete.addListener('place_changed',() => {
         var place = autoComplete.getPlace()
         if (place.geometry){
@@ -37,12 +47,9 @@ class SearchLocation extends Component {
             name:place.name,
             location:place.geometry.location
           }
-          console.log('AREA:',area);
-          this.props.getLocation(area);
-          console.log('From state:',this.props.areaObject);
-          this.props.resetVenues();
-          this.props.getVenuesDetails(this.props.location.lat()+','+this.props.location.lng());
 
+          // set up map and venues
+          this.setMapVenues(area)
         }
         else {
           console.log('no such place!!!');
@@ -54,9 +61,10 @@ class SearchLocation extends Component {
   render(){
     console.log('in SearchLocation, in render');
     this.renderAutocomplete();
+    let currentArea =  this.props.areaObject.name == 'Manhattan' ? 'Manhattan' : '';
     return(
       <div className = 'SearchLocation'>
-        <span className = 'SearchLocation-currentLocation'>Research for:{/*this.props.location?this.props.location:''*/}</span>
+        <span className = 'SearchLocation-currentLocation'>Search for: {currentArea}</span>
         <span className = 'SearchLocation-inputContainer'><input id='searchInput' placeholder='Type name of area, address, zip code or some places' size="50"/></span>
       </div>
     )
